@@ -1,0 +1,236 @@
+Questão 1
+
+/*
+Programa: Exibir o peso dos elementos em kg.
+Data de criação: 03/05/2021.
+Autora: Maria Clara Almeida Souza
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main()
+{
+    // comando de regionalização
+    setlocale(LC_ALL, "");
+    //Declaração de variáveis
+    float peso;
+    int count;
+
+    printf("Informe o peso do elemento em kg:");
+    scanf("%f", &peso);
+
+    //inicializando a variável
+    count = 0;
+    while (peso > 1)
+    {
+        printf("Peso atual: %.2f \n", peso/=2);
+        count++;
+    }
+    printf("%d vezes", count);
+
+    return 0;
+}
+
+----------------------------------------------------------------------------------------
+Questão 2
+
+/*
+Programa: Exibir a média da idade dos pacientes.
+Data de criação: 03/05/2021.
+Autora: Maria Clara Almeida Souza
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main()
+{
+    // comando de regionalização
+    setlocale(LC_ALL, "");
+    // declaração de variáveis
+    int n, idade, aux;
+
+    //inicializando a variável n e aux
+    n = 0;
+    aux = 0;
+
+    printf("Informe as idades dos pacientes internados:\n");
+
+    do
+    {
+        scanf("%d", &idade);
+        aux += idade;
+        if(idade > 0)
+        {
+            n++;
+        }
+    }
+    while(idade > 0);
+
+
+    printf("Média: %.d", aux/n);
+    return 0;
+}
+
+----------------------------------------------------------------------------------------
+Questão 3
+
+/*
+Programa: Receber a nota do aluno de 0 a 10.
+Data de criação: 03/05/2021.
+Autora: Maria Clara Almeida Souza
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main()
+{
+    // comando de regionalização
+    setlocale(LC_ALL, "");
+    //Declaração de variáveis - considerando que as notas são números inteiros
+    int nota;
+
+    do {
+        printf("Digite uma nota válida: ");
+        scanf("%d", &nota);
+    } while(nota > 10 || nota < 0);
+    printf("Nota registrada");
+
+    return 0;
+}
+
+----------------------------------------------------------------------------------------
+Questão 4	Forma 1
+
+
+/*
+Programa: Receber 10 números e informar quantos são ímpares e quantos são pares.
+Data de criação: 03/05/2021.
+Autora: Maria Clara Almeida Souza
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main()
+{
+    // comando de regionalização
+    setlocale(LC_ALL, "");
+    //declaração de variável
+    int numero, count_impar, count_par, n = 1;
+
+    //inicializando as variáveis
+    count_impar = 0;
+    count_par = 0;
+
+
+    while(n <= 10)
+    {
+        printf("Digite um número: ");
+        scanf("%d", &numero);
+        if (numero%2==1) count_impar++;
+        else count_par++;
+        n++;
+    }
+
+    printf("Números pares: %d \n", count_par);
+    printf("Números ímpares: %d", count_impar);
+    return 0;
+}
+
+
+Questão 4	Forma 2
+
+/*
+Programa: Receber 10 números e informar quantos são ímpares e quantos são pares.
+Data de criação: 03/05/2021.
+Autora: Maria Clara Almeida Souza
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main()
+{
+    // comando de regionalização
+    setlocale(LC_ALL, "");
+    //declaração de variável
+    int numero, count_impar, count_par;
+
+    //inicializando as variáveis
+    count_impar = 0;
+    count_par = 0;
+
+    for(int i = 1; i <=10; i++) {
+    printf("Digite um número: ");
+    scanf("%d", &numero);
+    if (numero%2==1) count_impar++;
+    else count_par++; }
+
+
+    printf("Números pares: %d \n", count_par);
+    printf("Números ímpares: %d", count_impar);
+    return 0;
+}
+
+----------------------------------------------------------------------------------------
+Questão 5
+
+/*
+Programa: Listar e determinar o total da compra.
+Data de criação: 03/05/2021.
+Autora: Maria Clara Almeida Souza
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+
+int main()
+{
+    // comando de regionalização
+    setlocale(LC_ALL, "");
+    //declaração de variáveis
+    float valorCompra;
+    int compra = 0;
+
+    printf("---------------------------\n");
+    printf("-          Menu           -\n");
+    printf("---------------------------\n");
+    printf("1-   Sandiíche (R$ 6,00)  -\n");
+    printf("2-     Suco (R$ 3,00)     -\n");
+    printf("3- Refrigerante (R$ 2,50) -\n");
+    printf("---------------------------\n");
+
+    valorCompra = 0.0;
+
+    printf("Digite o número do produto que deseja adicionar ao carrinho e 0 para finalizar a compra: \n");
+
+    do
+    {
+        scanf("%d", &compra);
+        if(compra == 1)
+        {
+            valorCompra += 6.00;
+        }
+        else if(compra == 2)
+        {
+            valorCompra += 3.00;
+        }
+        else if(compra == 3) {
+            valorCompra += 2.50;
+        }
+    }
+    while(compra > 0 && compra <= 3);
+    printf("Valor total da compra: R$ %.2f", valorCompra);
+
+    return 0;
+}
+
